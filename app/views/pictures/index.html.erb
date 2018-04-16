@@ -13,3 +13,10 @@
   <a href= "/pictures/<%= picture.id %>">
   <img src="<%= picture.url %>" alt="<%= picture.title %>"></a>
 <% end %>
+
+<h1>Older than 1 month</h1>
+<ul>
+  <% @created_a_month_ago.each do |picture| %>
+    <li><%= picture.title %></li>
+  <% end %>
+</ul>
