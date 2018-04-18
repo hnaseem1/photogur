@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+.grid-container {
+   display: grid;
+   grid-gap: 50px;
+
+ }
+
+.grid-item {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}

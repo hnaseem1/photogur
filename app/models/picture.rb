@@ -1,4 +1,10 @@
 class Picture < ApplicationRecord
+
+  validates :artist, :url, presence: true
+  validates :url, uniqueness: true
+  validates :title, length: { in: 3..20 }
+
+
   def self.newest_first
     Picture.order("created_at DESC")
   end
@@ -10,4 +16,5 @@ class Picture < ApplicationRecord
   def self.created_before(time)
     Picture.where("created_at < ?", time)
   end
+
 end
