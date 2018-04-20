@@ -1,29 +1,39 @@
-<h1>Pictures</h1>
-<%= link_to("New Picture", "/pictures/new") %>
-<h1>Most recent pictures</h1>
-<ul>
-  <% @most_recent_pictures.each do |picture| %>
-    <li><%= picture.title %></li>
+
+  <header>
+
+  <h1>Pictures</h1>
+  <%= link_to("New Picture", "/pictures/new") %>
+
+  </header>
+
+  <h1>Most recent pictures</h1>
+  <ul>
+    <% @most_recent_pictures.each do |picture| %>
+      <li><%= picture.title %></li>
+    <% end %>
+  </ul>
+
+
+
+  <h1>All pictures</h1>
+  <div class="grid-class">
+
+
+  <% @pictures.each do |picture| %>
+    <div class="photo">
+    <p><%= picture.title %>, <%= picture.artist %></p>
+    <a href= "/pictures/<%= picture.id %>">
+    <img src="<%= picture.url %>" alt="<%= picture.title %>"></a>
+    </div>
   <% end %>
-</ul>
-
-<h1>All pictures</h1>
-<div class="grid-container">
-
-
-<% @pictures.each do |picture| %>
-  <div class="grid-item">
-  <p><%= picture.title %>, <%= picture.artist %></p>
-  <a href= "/pictures/<%= picture.id %>">
-  <img src="<%= picture.url %>" alt="<%= picture.title %>"></a>
-  </div>
-<% end %>
-
 </div>
 
-<h1>Older than 1 month</h1>
-<ul>
-  <% @created_a_month_ago.each do |picture| %>
-    <li><%= picture.title %></li>
+  <% if @created_a_month_ago %>
+    <h1>Older than 1 month</h1>
+    <ul>
+      <% @created_a_month_ago.each do |picture| %>
+        <li><%= picture.title %></li>
+        <li><%= @created_a_month_ago%></li>
+      <% end %>
+    </ul>
   <% end %>
-</ul>

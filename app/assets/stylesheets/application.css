@@ -13,13 +13,32 @@
  *= require_tree .
  *= require_self
  */
-.grid-container {
-   display: grid;
-   grid-gap: 50px;
+ * {
+   max-width: 100%;
+   font-family: futura, sans-serif;
+ }
+
+ .grid-class {
+    display: grid;
+    grid-gap: 1%;
+    grid-row-gap: 15px;
+    grid-template-columns: 32% 32% 32%;
 
  }
 
-.grid-item {
-  grid-column-start: 1;
-  grid-column-end: 2;
+.photo {
+  width: 100%;
+  height: 100%;
+  border: 5px black solid;
+
+}
+
+.header {
+
+  border-color: #E6250E;
+
+}
+
+p {
+  text-align: center;
 }
