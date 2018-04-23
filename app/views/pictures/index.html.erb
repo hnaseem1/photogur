@@ -2,8 +2,9 @@
   <header>
 
   <h1>Pictures</h1>
-  <%= link_to("New Picture", "/pictures/new") %>
-
+  <% if current_user %>
+    <%= link_to("New Picture", new_picture_path) %>
+  <% end %>
   </header>
 
   <h1>Most recent pictures</h1>
