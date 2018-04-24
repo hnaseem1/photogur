@@ -16,6 +16,7 @@
  * {
    max-width: 100%;
    font-family: futura, sans-serif;
+   background-color: #FAFBFC
  }
 
  .grid-class {
@@ -41,4 +42,83 @@
 
 p {
   text-align: center;
+}
+
+h1, h5 {
+  text-align: center;
+  text-decoration: none;
+}
+
+a {
+  color: purple;
+  text-decoration: none;
+  text-align: center;
+}
+
+form {
+
+  text-align: center;
+  margin: 0 auto;
+  width: max-content;
+}
+
+.field {
+  padding: 1% 0;
+  text-align: right;
+  /* width: max-content; */
+}
+
+label {
+  padding: 10px;
+
+}
+
+input {
+}
+
+.login {
+  text-align: left;
+}
+
+.fullimg {
+  width: 95%;
+  border: solid black 9px;
+  margin-left: 2%;
+  margin-top: 2%;
+}
+
+.edit_picture {
+
+  padding-right: 0%;
+
+}
+
+.field_with_errors {
+  display: inline-block;
+
+}
+
+h5 {
+  margin-top: 5%;
+}
+
+a:visited {
+  color: purple;
+}
+
+h2 {
+  text-decoration: underline;
+}
+
+a:hover {
+  color: red;
+}
+
+.login_items {
+
+  margin-top: 5%;
+}
+
+.reg_items {
+  margin-top: 5%;
 }

@@ -1,13 +1,4 @@
-
-  <header>
-
-  <h1>Pictures</h1>
-  <% if current_user %>
-    <%= link_to("New Picture", new_picture_path) %>
-  <% end %>
-  </header>
-
-  <h1>Most recent pictures</h1>
+  <h2>Most recent pictures</h2>
   <ul>
     <% @most_recent_pictures.each do |picture| %>
       <li><%= picture.title %></li>
@@ -16,7 +7,7 @@
 
 
 
-  <h1>All pictures</h1>
+  <h2>All pictures</h2>
   <div class="grid-class">
 
 
@@ -29,7 +20,7 @@
   <% end %>
 </div>
 
-  <% if @created_a_month_ago %>
+  <% if @created_a_month_ago.any? %>
     <h1>Older than 1 month</h1>
     <ul>
       <% @created_a_month_ago.each do |picture| %>

@@ -1,3 +1,5 @@
+<div class="login_items">
+
 <h1>Login</h1>
 <%= form_for :session, url: sessions_path do |f| %>
 
@@ -11,6 +13,14 @@
     <%= f.password_field :password %>
   </div>
 
+  <div class="field">
   <%= f.submit "Login" %>
-
+  </div>
 <% end %>
+
+<div class="about">
+  <p> Imagery! is a free photo sharing platform that lets you share your favorite photos with your loved ones! </p>
+</div>
+
+
+</div>

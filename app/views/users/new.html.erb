@@ -1,10 +1,14 @@
+<div class="reg_items">
+
 <h1>New User Registration</h1>
 <% if @user.errors.any? %>
+<div class="errors">
   <ul>
     <% @user.errors.full_messages.each do |m| %>
       <li><%= m %></li>
     <% end %>
   </ul>
+</div>
 <% end %>
 
 <%= form_for @user do |f| %>
@@ -24,6 +28,12 @@
     <%= f.password_field :password_confirmation %>
   </div>
 
-  <%= f.submit 'Sign Up' %>
+  <div class="field">
+      <%= f.submit 'Sign Up' %>
+  </div>
+
 
 <% end %>
+
+
+</div>

@@ -1,16 +1,19 @@
 class PicturesController < ApplicationController
 
   before_action :ensure_logged_in, except: [:show, :index]
+  before_action :load_picture, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_user_owns_picture, only: [:edit, :update, :destroy]
+
 
 
   def index
     @pictures = Picture.all
     @most_recent_pictures = Picture.most_recent_five
-    @created_a_month_ago = Picture.created_before(Time.new - 2750000)
+    @created_a_month_ago = Picture.created_before(Time.now - 1.month)
   end
 
   def show
-    @picture = Picture.find(params[:id])
+    # @picture = Picture.find(params[:id])
   end
 
   def new
@@ -36,7 +39,7 @@ class PicturesController < ApplicationController
   end
 
   def edit
-    @picture = Picture.find(params[:id])
+    # @picture = Picture.find(params[:id])
   end
 
   def update
@@ -57,9 +60,13 @@ class PicturesController < ApplicationController
 
   def destroy
 
-    @picture = Picture.find(params[:id])
+    # @picture = Picture.find(params[:id])
     @picture.destroy
     redirect_to "/pictures"
+  end
+
+  def load_picture
+    @picture = Picture.find(params[:id])
   end
 
 end

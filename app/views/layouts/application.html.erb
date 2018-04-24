@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Photogur</title>
+  <title>Imagery!</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <header>
+
+  <h1><a href="/pictures">Imagery!</a></h1>
+  <% if current_user %>
+    <%= link_to("Add a New Picture", new_picture_path) %>
+  <% end %>
+  <div class="login">
+    <p class="userinfo">
+          <% if current_user %>
+            Signed in as <%= current_user.email %>. <%= link_to "Log out", sessions_path("current"), :method => :delete %>
+          <% else %>
+            <%= link_to "Log in", new_sessions_path %> or <%= link_to "Sign up", new_users_path %>
+          <% end %>
+        </p>
+
+  </div>
+  </header>
+
 <%= flash[:alert] %>
 
 <%= yield %>
-<p class="userinfo">
-      <% if current_user %>
-        Signed in as <%= current_user.email %>. <%= link_to "Log out", sessions_path("current"), :method => :delete %>
-      <% else %>
-        <%= link_to "Log in", new_sessions_path %> or <%= link_to "Sign up", new_users_path %>
-      <% end %>
-    </p>
+
+<footer>
+  <h5> Developed by <a href="http://www.hasannaseem.com">Hasan Naseem</a> using Ruby on Rails</h5>
+</footer>
 </body>
+
 </html>

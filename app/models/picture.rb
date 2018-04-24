@@ -4,7 +4,7 @@ class Picture < ApplicationRecord
 
   validates :artist, :url, presence: true
   validates :url, uniqueness: true
-  validates :title, length: { in: 3..20 }
+  validates :title, length: { in: 3..100 }
 
 
   def self.newest_first
