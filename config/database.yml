@@ -17,3 +17,5 @@ test:
 production:
   <<: *default
   database: photogur_production
+  username: photgur
+  password: <%= ENV['PHOTOGUR_DATABASE_PASSWORD'] %>
