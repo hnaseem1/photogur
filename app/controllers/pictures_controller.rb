@@ -4,6 +4,9 @@ class PicturesController < ApplicationController
   before_action :load_picture, only: [:show, :edit, :update, :destroy]
   before_action :ensure_user_owns_picture, only: [:edit, :update, :destroy]
 
+  def picture_params
+    params.require(:picture).permit(:title, :artist, :url)
+  end
 
 
   def index
@@ -21,11 +24,12 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.new
 
-    @picture.title = params[:picture][:title]
-    @picture.artist = params[:picture][:artist]
-    @picture.url = params[:picture][:url]
+    @picture = Picture.new(picture_params)
+
+    # @picture.title = params[:picture][:title]
+    # @picture.artist = params[:picture][:artist]
+    # @picture.url = params[:picture][:url]
     @picture.user_id = session[:user_id]
 
     if @picture.save
@@ -44,9 +48,11 @@ class PicturesController < ApplicationController
 
   def update
 
-    @picture.title = params[:picture][:title]
-    @picture.artist = params[:picture][:artist]
-    @picture.url = params[:picture][:url]
+    @picture = picture_params
+    
+    # @picture.title = params[:picture][:title]
+    # @picture.artist = params[:picture][:artist]
+    # @picture.url = params[:picture][:url]
 
     if @picture.save
       #if the picture gets saved, generate a get request to "/pictures" (the index)
